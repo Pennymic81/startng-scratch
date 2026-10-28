@@ -228,10 +228,10 @@ button.signin{border:0}button.signin:hover{background:#000}
   <a class="logo" href="#"><span class="tile"></span><span class="wm">start<span>.ng</span></span></a>
   <nav class="nav"><span>Games</span><span>Tournament</span><span>Creators</span><span>Docs</span></nav>
   <span class="moon" aria-hidden="true">☾</span>
-  <button class="signin" type="button" id="signin">Sign in</button>
+  <span class="signin">Sign in</span>
   <span class="me" id="me" hidden><span class="av">MP</span><span class="hide-sm">Michael</span></span>
 </div></div></header>
-<div class="ribbon gut"><div class="inner"><span>✦ Design concept · start.ng Daily Scratch Card</span><span id="ribbonHint">Press Sign in to try it</span></div></div>
+<div class="ribbon gut"><div class="inner"><span>✦ Design concept · start.ng Daily Scratch Card</span><span>Sample data</span></div></div>
 
 <main class="gut"><div class="inner home">
   <section class="hhero">
@@ -421,9 +421,8 @@ setInterval(dash,6500);
 
 /* ---------- sign in → small icon → yes / no → card ---------- */
 let saidYes=false,lastFocus=null;
-$("signin").onclick=()=>{$("signin").hidden=true;$("me").hidden=false;$("ribbonHint").textContent="Signed in · sample user";
-  toast("Signed in. Welcome back!");
-  setTimeout(()=>{$("launch").hidden=false;setTimeout(dash,700);setTimeout(()=>{$("bubble").hidden=false;$("yes").focus({preventScroll:true})},RM?0:2600)},RM?0:900)};
+// straight in: the small card arrives a moment after the page opens
+setTimeout(()=>{$("launch").hidden=false;setTimeout(dash,700);setTimeout(()=>{$("bubble").hidden=false;$("yes").focus({preventScroll:true})},RM?0:2600)},RM?0:1200);
 $("yes").onclick=()=>{saidYes=true;$("bubble").hidden=true;openSheet()};
 $("no").onclick=()=>{$("bubble").hidden=true;toast("No wahala. Tap the little card any time.");$("mini").focus()};
 $("mini").onclick=()=>{if(saidYes||completed){openSheet();return}const b=$("bubble");b.hidden=!b.hidden;if(!b.hidden)$("yes").focus()};
